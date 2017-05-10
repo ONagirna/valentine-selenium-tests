@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="9" passed="8">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="54792" started-at="2017-05-10T08:45:36Z" finished-at="2017-05-10T08:46:31Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="54792" started-at="2017-05-10T08:45:36Z" finished-at="2017-05-10T08:46:31Z">
+      <class name="com.valentine.test.AddFewItemsToCart">
+        <test-method status="PASS" signature="testCARTbuttonOpensPopup()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="testCARTbuttonOpensPopup" duration-ms="7234" started-at="2017-05-10T11:46:06Z" finished-at="2017-05-10T11:46:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCARTbuttonOpensPopup -->
+        <test-method status="PASS" signature="testRedirectFromPopupToCartPage()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="testRedirectFromPopupToCartPage" duration-ms="5513" started-at="2017-05-10T11:46:13Z" depends-on-methods="com.valentine.test.AddFewItemsToCart.testCARTbuttonOpensPopup" finished-at="2017-05-10T11:46:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedirectFromPopupToCartPage -->
+        <test-method status="PASS" signature="testContinueShopping()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="testContinueShopping" duration-ms="3296" started-at="2017-05-10T11:46:19Z" depends-on-methods="com.valentine.test.AddFewItemsToCart.testRedirectFromPopupToCartPage" finished-at="2017-05-10T11:46:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContinueShopping -->
+        <test-method status="PASS" signature="addDifferentItemToCart()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="addDifferentItemToCart" duration-ms="1255" started-at="2017-05-10T11:46:22Z" depends-on-methods="com.valentine.test.AddFewItemsToCart.testContinueShopping" finished-at="2017-05-10T11:46:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addDifferentItemToCart -->
+        <test-method status="PASS" signature="testCartPageWithTwoItems()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="testCartPageWithTwoItems" duration-ms="5617" started-at="2017-05-10T11:46:23Z" depends-on-methods="com.valentine.test.AddFewItemsToCart.addDifferentItemToCart" finished-at="2017-05-10T11:46:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCartPageWithTwoItems -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.valentine.test.AddFewItemsToCart@47c62251]" name="tearDown" is-config="true" duration-ms="2313" started-at="2017-05-10T11:46:29Z" finished-at="2017-05-10T11:46:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.valentine.test.AddFewItemsToCart -->
+      <class name="com.valentine.test.AddItemToCartTest">
+        <test-method status="PASS" signature="testAddCardButtonOpensPopup()[pri:0, instance:com.valentine.test.AddItemToCartTest@27efef64]" name="testAddCardButtonOpensPopup" duration-ms="7263" started-at="2017-05-10T11:45:51Z" finished-at="2017-05-10T11:45:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddCardButtonOpensPopup -->
+        <test-method status="PASS" signature="testAddToCartButtonOnPopupRedirectsToCartPage()[pri:0, instance:com.valentine.test.AddItemToCartTest@27efef64]" name="testAddToCartButtonOnPopupRedirectsToCartPage" duration-ms="5304" started-at="2017-05-10T11:45:58Z" depends-on-methods="com.valentine.test.AddItemToCartTest.testAddCardButtonOpensPopup" finished-at="2017-05-10T11:46:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddToCartButtonOnPopupRedirectsToCartPage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.valentine.test.AddItemToCartTest@27efef64]" name="tearDown" is-config="true" duration-ms="2312" started-at="2017-05-10T11:46:04Z" finished-at="2017-05-10T11:46:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.valentine.test.AddItemToCartTest -->
+      <class name="com.valentine.test.DefaultQuantityOfItemsInCart">
+        <test-method status="PASS" signature="testNavigationToCart()[pri:0, instance:com.valentine.test.DefaultQuantityOfItemsInCart@ae45eb6]" name="testNavigationToCart" duration-ms="12446" started-at="2017-05-10T11:45:36Z" finished-at="2017-05-10T11:45:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigationToCart -->
+        <test-method status="FAIL" signature="testDefaultQuantityInCart()[pri:0, instance:com.valentine.test.DefaultQuantityOfItemsInCart@ae45eb6]" name="testDefaultQuantityInCart" duration-ms="2102" started-at="2017-05-10T11:45:49Z" depends-on-methods="com.valentine.test.DefaultQuantityOfItemsInCart.testNavigationToCart" finished-at="2017-05-10T11:45:51Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Incorrect default quantity of items in cart. expected [1] but found []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Incorrect default quantity of items in cart. expected [1] but found []
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at com.valentine.test.DefaultQuantityOfItemsInCart.testDefaultQuantityInCart(DefaultQuantityOfItemsInCart.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDefaultQuantityInCart -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.valentine.test.DefaultQuantityOfItemsInCart@ae45eb6]" name="tearDown" is-config="true" duration-ms="112" started-at="2017-05-10T11:45:51Z" finished-at="2017-05-10T11:45:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.valentine.test.DefaultQuantityOfItemsInCart -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.valentine.test.DefaultQuantityOfItemsInCart">
+        <methods>
+          <include name="testDefaultQuantityInCart"/>
+          <include name="tearDown"/>
+          <include name="testNavigationToCart"/>
+        </methods>
+      </class> <!-- com.valentine.test.DefaultQuantityOfItemsInCart -->
+      <class name="com.valentine.test.AddItemToCartTest">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.valentine.test.AddItemToCartTest -->
+      <class name="com.valentine.test.AddFewItemsToCart">
+        <methods>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.valentine.test.AddFewItemsToCart -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

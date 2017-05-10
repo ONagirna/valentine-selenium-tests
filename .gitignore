@@ -1,0 +1,17 @@
+allure-report/
+**/allure-report/
+target/
+**/target/
+test-output/
+**/test-output/
+.settings/
+.classpath
+.project
+.settings/
+*.iml
+*~
+
+bin/
+
+selenium_standalone_binaries/**
+selenium_standalone_zips/**
