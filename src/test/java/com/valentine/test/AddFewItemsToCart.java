@@ -3,11 +3,12 @@ package com.valentine.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import com.valentine.tools.Browser;
 
 public class AddFewItemsToCart {
 	private WebDriver driver;
@@ -20,8 +21,7 @@ public class AddFewItemsToCart {
 
 	@Test
 	public void testCARTbuttonOpensPopup() {
-		System.setProperty("webdriver.chrome.driver", "C:\\lib\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
+		driver = Browser.open();
 		driver.get(mainPage);
 
 		driver.findElement(By.cssSelector("[href='#et-entry-post-21']")).click();
