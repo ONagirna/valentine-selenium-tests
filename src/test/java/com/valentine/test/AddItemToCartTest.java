@@ -1,54 +1,72 @@
 package com.valentine.test;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.Test;
 
-import com.valentine.tools.Browser;
+import com.valentine.app.AwfulValentine;
+import com.valentine.app.HomePage;
+import com.valentine.app.ShoppingCartPage;
+import com.valentine.data.ProductDataModel;
 
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
+
+import static org.testng.Assert.*;
+
+import java.util.Random;
+
+@Features("Shopping")
+@Stories("Add Item to Cart")
 public class AddItemToCartTest {
-	private WebDriver driver;
+	private HomePage onHomePage;
+	private ShoppingCartPage onShoppingCartPage;
+	private ProductDataModel testItem;
 
 	@Test
 	public void testAddCardButtonOpensPopup() {
-		driver = Browser.open();
-		driver.get("http://awful-valentine.com/");
+		onHomePage = AwfulValentine.openHomePage();
+		int randomIndex = new Random().nextInt(5) + 1;
+		testItem = onHomePage.getSpecialOffer(randomIndex);
+		onHomePage.clickAddtoCartOnSpecialOffer(randomIndex);
 		
-		driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
-		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' did not appear.");
+		assertEquals(onHomePage.getProductInfoFromPopup(), testItem, "Incorrect data on popup");
 
-		Assert.assertTrue(addToCartPopup.isDisplayed());
-		
-		waitFor(1000);
-		WebElement title = driver.findElement(By.cssSelector("#et-offer-post-30 .et_popup_title"));
-		Assert.assertEquals(title.getText(), "Closeness and Togetherness", "Incorrect product title");
-		waitFor(2000);
 	}
 
+	
 	@Test(dependsOnMethods = "testAddCardButtonOpensPopup")
 	public void testAddToCartButtonOnPopupRedirectsToCartPage() {
-		
-		waitFor(2000);
-		driver.findElement(By.id("addToCart_6_2")).click();
-		waitFor(2000);
-		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/");
+
+		onShoppingCartPage = onHomePage.clickAddToCartOnPopup();
+		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
+				"Incorrect URL after click on 'Add to Cart' button on popup");
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		driver.close();
-
-	}
-	private void waitFor(int milliseconds) {
-		try {
-			Thread.sleep(milliseconds);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		AwfulValentine.quit();
 	}
 
 }
+
+
+//	}
+//	private void productsShouldBeEqual(ProductDataModel actual, ProductDataModel expected) {
+//		String message = "";
+//
+//		if (!actual.getTitle().equals(expected.getTitle())) {
+//			message = message.concat("Expected product title: " + expected.getTitle());
+//			message = message.concat("\nActual product title: " + actual.getTitle());
+//		}
+//
+//		if (actual.getUnitPrice() != expected.getUnitPrice()) {
+//			message = message.concat("\nExpected product price: " + expected.getUnitPrice());
+//			message = message.concat("\nActual product price: " + actual.getUnitPrice());
+//		}
+//
+//		if (!message.equals(""))
+//			throw new AssertionError(message);
+//
